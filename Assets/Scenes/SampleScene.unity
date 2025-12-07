@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5.36
-  rotateSpeed: 6.26
+  sensitivity: 17.1
 --- !u!1 &2130374805
 GameObject:
   m_ObjectHideFlags: 0
