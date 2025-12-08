@@ -1,4 +1,3 @@
-using System.IO.Enumeration;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,10 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     [Range(8, 30)]
     public float sensitivity;
-
+    [Range(3, 10)]
     public float gravityForce = 3;
-
-    private Vector3 _movementInput;
+    
+    private float _moveX;
+    private float _moveZ;
     private Vector3 _lookInput = Vector3.zero;
     
     private CharacterController _characterController;
@@ -31,8 +31,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _characterController.Move(_movementInput);
+        //Move the player
+        
+        var movementInput = new Vector3(0, -gravityForce, 0);
+        //gets input an ensure direction is taken into account
+        movementInput += (transform.forward * _moveZ) + (transform.right * _moveX);
+        _characterController.Move(movementInput * Time.deltaTime);
 
+        //Camera Movement
+        
         //Camera vertical rotation
         _currentYRotation -= _lookInput.x;
         //ensure value is within acceptable range
@@ -46,10 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        var moveX = value.Get<Vector2>().x * speed * Time.deltaTime;
-        var moveZ = value.Get<Vector2>().y * speed * Time.deltaTime;
-        
-        _movementInput = new Vector3(moveX, -gravityForce * Time.deltaTime ,moveZ);
+        _moveX = value.Get<Vector2>().x * speed;
+        _moveZ = value.Get<Vector2>().y * speed;
     }
 
     void OnLook(InputValue value)

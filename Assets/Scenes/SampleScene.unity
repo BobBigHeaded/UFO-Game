@@ -211,7 +211,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -682,6 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5.36
   sensitivity: 17.1
+  gravityForce: 6
 --- !u!1 &2130374805
 GameObject:
   m_ObjectHideFlags: 0
