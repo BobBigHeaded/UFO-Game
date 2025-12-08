@@ -682,7 +682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5.36
   sensitivity: 17.1
-  gravityForce: 6
+  gravityForce: -13.96
+  jumpForce: 3.65
 --- !u!1 &2130374805
 GameObject:
   m_ObjectHideFlags: 0

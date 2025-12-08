@@ -7,16 +7,22 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     [Range(8, 30)]
     public float sensitivity;
-    [Range(3, 10)]
-    public float gravityForce = 3;
+    [Range(-20f, -10f)]
+    public float gravityForce = -5;
+    [Range(0, 5)]
+    public float jumpForce = 1;
     
+    //for movement
     private float _moveX;
     private float _moveZ;
+    //for Camera Movement
+    private float _currentYRotation = 0f;
     private Vector3 _lookInput = Vector3.zero;
+    //for jumping
+    private float _currentYVelocity = 0f;
     
     private CharacterController _characterController;
     private Transform _cameraTransform;
-    private float _currentYRotation = 0f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Move the player
-        
-        var movementInput = new Vector3(0, -gravityForce, 0);
+        var movementInput = new Vector3(0, _currentYVelocity, 0);
         //gets input an ensure direction is taken into account
         movementInput += (transform.forward * _moveZ) + (transform.right * _moveX);
         _characterController.Move(movementInput * Time.deltaTime);
@@ -49,6 +54,13 @@ public class PlayerMovement : MonoBehaviour
         
         //rotates along the horizontal axis
         transform.Rotate(Vector3.up * _lookInput.y);
+
+        if (_currentYVelocity < -2f && _characterController.isGrounded)
+        {
+            _currentYVelocity = -2f;
+        }
+        
+        _currentYVelocity += gravityForce * Time.deltaTime;
     }
 
     void OnMove(InputValue value)
@@ -65,6 +77,9 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump()
     {
-        
+        if (_characterController.isGrounded)
+        {
+            _currentYVelocity = Mathf.Sqrt(jumpForce * -2f * gravityForce);
+        }
     }
 }
