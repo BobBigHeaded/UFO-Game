@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abfa213a88df556a89346083e7c6e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  shootInput: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  shootInput: {fileID: 0}
 --- !u!1 &2130374805
 GameObject:
   m_ObjectHideFlags: 0
