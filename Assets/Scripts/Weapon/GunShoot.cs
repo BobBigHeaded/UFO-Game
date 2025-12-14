@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GunShoot : MonoBehaviour
@@ -5,7 +6,12 @@ public class GunShoot : MonoBehaviour
     [SerializeField] private WeaponBase weaponInfo;
     
     private float _timerStarted = 0f;
-    
+
+    public void Start()
+    {
+        throw new NotImplementedException();
+    }
+
     public void HoldTime(float startTime)
     {
         _timerStarted = startTime;
@@ -18,7 +24,7 @@ public class GunShoot : MonoBehaviour
         SpawnProjectile(position);
     }
 
-    public void SpawnProjectile(Vector3 position)
+    private void SpawnProjectile(Vector3 position)
     {
         var projectile = Instantiate(weaponInfo.projectilePrefab, position, transform.rotation);
         projectile.GetComponent<Rigidbody>().linearVelocity += (projectile.transform.forward * weaponInfo.GetProjectileSpeed());
