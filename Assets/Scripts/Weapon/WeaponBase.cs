@@ -7,5 +7,6 @@ public abstract class WeaponBase : ScriptableObject
     
     public float projectileSpeed;
 
-    public abstract bool Shoot();
+    public abstract bool CanShoot(float timeStarted, float timeEnded);
+    public abstract float GetProjectileSpeed();
 }
