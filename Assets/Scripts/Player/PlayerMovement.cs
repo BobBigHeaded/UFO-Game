@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
             _currentYVelocity = -2f;
         }
         
+        //apply gravity
         _currentYVelocity += gravityForce * Time.deltaTime;
     }
 
