@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    public GameObject player;
     
     private void Start()
     {
@@ -20,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
         //if the enemy is within stopping distance we'll change direction
         if (_agent.remainingDistance <= _agent.stoppingDistance)
         {
-            //new destination within 4 - 6 steps
             _agent.destination = GetRandomDirection();
         }
     }
@@ -29,7 +27,8 @@ public class EnemyMovement : MonoBehaviour
     {
         //Get random rotation for a random direction
         transform.Rotate(0, Random.Range(0, 360), 0);
-        var newGoal = transform.position + (transform.forward * Random.Range(2f, 4f));
+        //new destination within 4 - 6 steps
+        var newGoal = transform.position + (transform.forward * Random.Range(4f, 6f));
         
         return newGoal;
     }
