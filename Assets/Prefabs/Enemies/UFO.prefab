@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4823193118730666051}
   m_Layer: 0
   m_Name: UFO
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d6a5d99ff0ae6838eedd33d98682cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  hitSound: {fileID: 8300000, guid: cc3b4f9806a1158338419405985a2536, type: 3}
 --- !u!65 &4823193118730666051
 BoxCollider:
   m_ObjectHideFlags: 0

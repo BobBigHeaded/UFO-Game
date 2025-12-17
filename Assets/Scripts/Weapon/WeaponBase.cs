@@ -4,6 +4,7 @@ public abstract class WeaponBase : ScriptableObject
 {
     public GameObject weaponModel;
     public GameObject projectilePrefab;
+    public AudioClip shotSound;
     
     public float projectileSpeed;
     
