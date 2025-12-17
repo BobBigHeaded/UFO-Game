@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //check if the collision is from a rock
-        if (other.gameObject.CompareTag("Projectile")) return;
+        if (!other.gameObject.CompareTag("Projectile")) return;
         
         //tell the spawner an enemy died
         GetComponentInParent<EnemySpawner>().EnemyDied();
