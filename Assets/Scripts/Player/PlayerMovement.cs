@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     [Range(8, 30)]
     public float sensitivity;
-    [Range(-20f, -10f)]
+    [Range(-20f, 0f)]
     public float gravityForce = -5;
     [Range(0, 5)]
     public float jumpForce = 1;
