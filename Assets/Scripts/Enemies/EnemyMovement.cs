@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent _agent;
+    [SerializeField] private AudioClip hitSound;
     
     private void Start()
     {
@@ -40,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
         
         //tell the spawner an enemy died
         GetComponentInParent<EnemySpawner>().EnemyDied();
+        AudioSource.PlayClipAtPoint(hitSound, transform.position);
         Destroy(gameObject);
     }
 }

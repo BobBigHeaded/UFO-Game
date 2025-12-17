@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteractions : MonoBehaviour
 {
@@ -53,5 +54,11 @@ public class PlayerInteractions : MonoBehaviour
         _timerStarted = Time.time;
         
         weaponScript.HoldTime(_timerStarted);
+    }
+
+    private void OnEscape()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0) return;
+        SceneManager.LoadScene(0);
     }
 }

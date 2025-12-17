@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChargedWeapon
   weaponModel: {fileID: 3192524937443453611, guid: 4c52a1210a837de7cbd7b8b3cb895d46, type: 3}
   projectilePrefab: {fileID: 4066779495435718010, guid: e1129ce56b76ab7fd9fe20ffe447c366, type: 3}
+  shotSound: {fileID: 8300000, guid: d5e4396a2798107f29cf943c749a48ed, type: 3}
   projectileSpeed: 20
