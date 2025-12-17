@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
+    private GameManager _gameManager;
     [SerializeField] private int maxEnemies;
     
     private float _lastSpawnTime;
@@ -12,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         Spawn();
+        
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -26,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
     public void EnemyDied()
     {
         _currentEnemies--;
+        _gameManager.IncreaseScore(1);
     }
     
     private void Spawn()
@@ -33,8 +37,8 @@ public class EnemySpawner : MonoBehaviour
         //set the time of the enemy spawn
         _lastSpawnTime = Time.time;
         //spawn enemy under spawner
-        Instantiate(enemy, GetRandomLocation(), Quaternion.identity);
-        enemy.transform.parent = transform;
+        var createdEnemy = Instantiate(enemy, GetRandomLocation(), Quaternion.identity);
+        createdEnemy.transform.parent = transform;
 
         _currentEnemies++;
     }
