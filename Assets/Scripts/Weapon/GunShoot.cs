@@ -11,7 +11,7 @@ public class GunShoot : MonoBehaviour
     public void Start()
     {
         //place the gun model in the correct position on the player
-        var weaponModel = Instantiate(weaponInfo.weaponModel, GameObject.Find("Player/GunPos").transform.position, GameObject.Find("Player/Main Camera").transform.rotation);
+        var weaponModel = Instantiate(weaponInfo.weaponModel, GameObject.Find("Player/Main Camera/GunPos").transform.position, GameObject.Find("Player/Main Camera").transform.rotation);
         weaponModel.transform.parent = GameObject.Find("Weapon/GFX").transform;
     }
 

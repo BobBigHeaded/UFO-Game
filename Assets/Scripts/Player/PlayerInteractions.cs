@@ -26,10 +26,7 @@ public class PlayerInteractions : MonoBehaviour
     private void Start()
     {
         //Finding the position of the weapon so we can find where to spawn a projectile
-        _projectileSpawnPosition = GameObject.Find("Player/GunPos");
-        //setting the offset for the spawn pos of projectiles
-        _projectileSpawnPosition.transform.position += _projectileSpawnPosition.transform.forward * 0.1f;
-        _projectileSpawnPosition.transform.position += _projectileSpawnPosition.transform.up * 0.3f;
+        _projectileSpawnPosition = GameObject.Find("Player/Main Camera/GunPos");
     }
 
     private void Attack(InputAction.CallbackContext context)
@@ -38,8 +35,11 @@ public class PlayerInteractions : MonoBehaviour
         //ensure the player has a weapon
         if (weaponScript == null) return;
         
+        //setting the offset for the spawn pos of projectiles
+        var newPos = (_projectileSpawnPosition.transform.forward * 0.1f) + (_projectileSpawnPosition.transform.up * 0.3f);
+        newPos += _projectileSpawnPosition.transform.position;
         //give position for projectile and Time for the end of the timer
-        weaponScript.FireWeapon(_projectileSpawnPosition.transform.position, Time.time);
+        weaponScript.FireWeapon((newPos), Time.time);
     }
 
     private void StartTimer(InputAction.CallbackContext context)
