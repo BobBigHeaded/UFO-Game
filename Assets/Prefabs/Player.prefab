@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5584232131696638451}
   - component: {fileID: 7942187836559917317}
   - component: {fileID: 3869286814244177599}
+  - component: {fileID: 4736777218841467520}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -107,6 +108,19 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4736777218841467520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556144306762907514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3abfa213a88df556a89346083e7c6e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractions
+  shootInput: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &3949793643200141410
 GameObject:
   m_ObjectHideFlags: 0
