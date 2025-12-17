@@ -35,9 +35,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Projectile"))
-        {
-            Destroy(gameObject);
-        }
+        //check if the collision is from a rock
+        if (other.gameObject.CompareTag("Projectile")) return;
+        
+        //tell the spawner an enemy died
+        GetComponentInParent<EnemySpawner>().EnemyDied();
+        Destroy(gameObject);
     }
 }

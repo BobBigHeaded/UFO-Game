@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        //spawn enemy each second
         if (Time.time - _lastSpawnTime > 1f && _currentEnemies < maxEnemies)
         {
             Spawn();
@@ -30,8 +30,11 @@ public class EnemySpawner : MonoBehaviour
     
     private void Spawn()
     {
+        //set the time of the enemy spawn
         _lastSpawnTime = Time.time;
+        //spawn enemy under spawner
         Instantiate(enemy, GetRandomLocation(), Quaternion.identity);
+        enemy.transform.parent = transform;
 
         _currentEnemies++;
     }
